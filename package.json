@@ -1,0 +1,28 @@
+{
+  "name": "blogger-template",
+  "version": "1.0.0",
+  "description": "Michimono's blogger template",
+  "homepage": "https://github.com/Michimono/blogger-template#readme",
+  "bugs": {
+    "url": "https://github.com/Michimono/blogger-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michimono/blogger-template.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "build:html": "node inline-css.mjs",
+    "build": "npm run build:css && npm run build:html"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {}
+}
