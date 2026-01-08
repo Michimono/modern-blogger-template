@@ -30,124 +30,166 @@
             </div>
         </b:if>
 
-
-        <nav class="relative bg-white">
-            <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-                <b:section id='header' name='Header' class="flex h-18 justify-between"
-                    showaddelement='yes'>
-                    <b:widget id='Header1' type='Header' locked='true' title='Site Header'>
-                        <b:includable id='main'>
-                            <b:class name='flex items-center' />
-                            <div class="p-2 lg:px-0">
-                                <a class="flex items-center space-x-2"
-                                    expr:href='data:blog.homepageUrl'
-                                    aria-label='homepage'>
-                                    <b:if cond='data:sourceUrl != &quot;&quot;'>
-                                        <img
-                                            class="max-h-8"
-                                            expr:src='data:sourceUrl'
-                                            expr:alt='data:blog.title' />
-                                    </b:if>
-                                    <span class="font-semibold text-black text-xl">
-                                        <data:blog.title />
-                                    </span>
-                                </a>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-
-                    <b:widget id='LinkList1' type='LinkList' title='Main Navigation' locked='true'>
-                        <b:includable id='main'>
-                            <b:class name='flex items-center' />
-                            <div class="hidden md:flex lg:flex-row items-center">
-                                <div class="lg:ml-6 flex lg:space-x-8">
-                                    <b:loop values='data:links' var='link'>
-                                        <a expr:href="data:link.target"
-                                            class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold text-gray-500 hover:border-gray-300 hover:text-gray-700">
-                                            <data:link.name />
-                                        </a>
-                                    </b:loop>
+        <div class="px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:max-w-7xl">
+                <nav class="relative bg-white">
+                    <b:section id='header' name='Header' class="flex h-18 justify-between"
+                        showaddelement='yes'>
+                        <b:widget id='Header1' type='Header' locked='true' title='Site Header'>
+                            <b:includable id='main'>
+                                <b:class name='flex items-center' />
+                                <div class="p-2 lg:px-0">
+                                    <a class="flex items-center space-x-2"
+                                        expr:href='data:blog.homepageUrl'
+                                        aria-label='homepage'>
+                                        <b:if cond='data:sourceUrl != &quot;&quot;'>
+                                            <img
+                                                class="max-h-8"
+                                                expr:src='data:sourceUrl'
+                                                expr:alt='data:blog.title' />
+                                        </b:if>
+                                        <span class="font-semibold text-black text-xl">
+                                            <data:blog.title />
+                                        </span>
+                                    </a>
                                 </div>
-                                <div
-                                    class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                                    <form
-                                        action="/search"
-                                        method="get"
-                                        class="relative flex w-full max-w-lg lg:max-w-xs">
+                            </b:includable>
+                        </b:widget>
 
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24"
-                                            fill="currentColor"
-                                            aria-hidden="true"
-                                            class="pointer-events-none absolute left-3 top-1/2 size-5 -translate-y-1/2 text-gray-400">
-                                            <path
-                                                d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                                        </svg>
-                                        <input
-                                            type="search"
-                                            name="q"
-                                            class="w-full rounded-l-md bg-white py-1.5 pl-10 pr-3 text-sm text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-                                        />
-                                        <button
-                                            type="submit"
-                                            class="rounded-r-md bg-gray-300 px-4 text-sm font-semibold text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                                            Search
-                                        </button>
-                                    </form>
-                                </div>
-
-                            </div>
-
-                            <div class="relative md:hidden">
-                                <input type="checkbox" id="menu-toggle" class="peer hidden" />
-                                <label for="menu-toggle"
-                                    class="flex items-center p-2 cursor-pointer z-50 relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        class="h-8 fill-gray-700">
-                                        <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
-                                    </svg>
-                                </label>
-                                <label
-                                    for="menu-toggle"
-                                    class="fixed inset-0 z-40 hidden peer-checked:block">
-                                </label>
-                                <div
-                                    class="absolute right-0 top-full mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible transition-all duration-200 ease-out z-50">
-                                    <div class="flex flex-col p-4 space-y-3">
+                        <b:widget id='LinkList1' type='LinkList' title='Main Navigation'
+                            locked='true'>
+                            <b:includable id='main'>
+                                <b:class name='flex items-center' />
+                                <div class="hidden md:flex lg:flex-row items-center">
+                                    <div class="lg:ml-6 flex lg:space-x-8">
                                         <b:loop values='data:links' var='link'>
-                                            <a expr:href='data:link.target'
-                                                class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50">
+                                            <a expr:href="data:link.target"
+                                                class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold text-gray-500 hover:border-gray-300 hover:text-gray-700">
                                                 <data:link.name />
                                             </a>
                                         </b:loop>
+                                    </div>
+                                    <div
+                                        class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                                        <form
+                                            action="/search"
+                                            method="get"
+                                            class="relative flex w-full max-w-lg lg:max-w-xs">
 
-                                        <div
-                                            class="grid w-full max-w-lg grid-cols-1 lg:max-w-xs">
-                                            <form
-                                                action="/search"
-                                                method="get"
-                                                class="relative flex w-full max-w-lg lg:max-w-xs">
-                                                <input
-                                                    type="search"
-                                                    name="q"
-                                                    class="w-full rounded-l-md bg-white py-1.5 px-3 text-sm text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-                                                />
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                                class="pointer-events-none absolute left-3 top-1/2 size-5 -translate-y-1/2 text-gray-400">
+                                                <path
+                                                    d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                                            </svg>
+                                            <input
+                                                type="search"
+                                                name="q"
+                                                class="w-full rounded-l-md bg-white py-1.5 pl-10 pr-3 text-sm text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+                                            />
+                                            <button
+                                                type="submit"
+                                                class="rounded-r-md bg-gray-300 px-4 text-sm font-semibold text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600">
+                                                Search
+                                            </button>
+                                        </form>
+                                    </div>
 
-                                                <button
-                                                    type="submit"
-                                                    class="rounded-r-md bg-gray-300 px-4 text-sm font-semibold text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                                                    Search
-                                                </button>
-                                            </form>
+                                </div>
+
+                                <div class="relative md:hidden">
+                                    <input type="checkbox" id="menu-toggle" class="peer hidden" />
+                                    <label for="menu-toggle"
+                                        class="flex items-center p-2 cursor-pointer z-50 relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            class="h-8 fill-gray-700">
+                                            <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                                        </svg>
+                                    </label>
+                                    <label
+                                        for="menu-toggle"
+                                        class="fixed inset-0 z-40 hidden peer-checked:block">
+                                    </label>
+                                    <div
+                                        class="absolute right-0 top-full mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible transition-all duration-200 ease-out z-50">
+                                        <div class="flex flex-col p-4 space-y-3">
+                                            <b:loop values='data:links' var='link'>
+                                                <a expr:href='data:link.target'
+                                                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50">
+                                                    <data:link.name />
+                                                </a>
+                                            </b:loop>
+
+                                            <div
+                                                class="grid w-full max-w-lg grid-cols-1 lg:max-w-xs">
+                                                <form
+                                                    action="/search"
+                                                    method="get"
+                                                    class="relative flex w-full max-w-lg lg:max-w-xs">
+                                                    <input
+                                                        type="search"
+                                                        name="q"
+                                                        class="w-full rounded-l-md bg-white py-1.5 px-3 text-sm text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+                                                    />
+
+                                                    <button
+                                                        type="submit"
+                                                        class="rounded-r-md bg-gray-300 px-4 text-sm font-semibold text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600">
+                                                        Search
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                </b:section>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </nav>
             </div>
-        </nav>
+        </div>
+
+        <b:section id="hero" class="hero" showaddelement="true">
+
+            <b:widget id="HTML1" type="HTML" title="Hero title" locked="true">
+                <b:widget-settings>
+                    <b:widget-setting name='content'>Update the content in the HTML widget from the
+                        hero section</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id="main">
+
+                    <div class="px-6 lg:px-8">
+                        <div class="mx-auto max-w-2xl lg:max-w-7xl">
+
+                            <!-- Subtitle -->
+                            <h2
+                                class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase">
+                                Blog
+                            </h2>
+
+                            <!-- Blog Title -->
+                            <h1
+                                class="mt-2 text-4xl font-semibold tracking-tighter text-gray-950 sm:text-6xl">
+                                <data:title />
+                            </h1>
+
+                            <!-- Blog Description / fallback -->
+                            <p class="mt-6 max-w-3xl text-2xl font-semibold text-gray-500">
+                                <b:if cond='data:content'>
+                                    <data:content />
+                                </b:if>
+                            </p>
+
+                        </div>
+                    </div>
+
+                </b:includable>
+            </b:widget>
+
+        </b:section>
+
 
     </body>
 
