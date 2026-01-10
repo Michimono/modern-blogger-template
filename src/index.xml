@@ -55,7 +55,6 @@
                                 </div>
                             </b:includable>
                         </b:widget>
-
                         <b:widget id='LinkList1' type='LinkList' title='Main Navigation'
                             locked='true'>
                             <b:includable id='main'>
@@ -75,7 +74,6 @@
                                             action="/search"
                                             method="get"
                                             class="relative flex w-full max-w-lg lg:max-w-xs">
-
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24"
                                                 fill="currentColor"
@@ -96,9 +94,7 @@
                                             </button>
                                         </form>
                                     </div>
-
                                 </div>
-
                                 <div class="relative md:hidden">
                                     <input type="checkbox" id="menu-toggle" class="peer hidden" />
                                     <label for="menu-toggle"
@@ -121,7 +117,6 @@
                                                     <data:link.name />
                                                 </a>
                                             </b:loop>
-
                                             <div
                                                 class="grid w-full max-w-lg grid-cols-1 lg:max-w-xs">
                                                 <form
@@ -133,7 +128,6 @@
                                                         name="q"
                                                         class="w-full rounded-l-md bg-white py-1.5 px-3 text-sm text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                                                     />
-
                                                     <button
                                                         type="submit"
                                                         class="rounded-r-md bg-gray-300 px-4 text-sm font-semibold text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600">
@@ -151,46 +145,245 @@
             </div>
         </div>
 
-        <b:section id="hero" class="hero" showaddelement="true">
 
-            <b:widget id="HTML1" type="HTML" title="Hero title" locked="true">
-                <b:widget-settings>
-                    <b:widget-setting name='content'>Update the content in the HTML widget from the
-                        hero section</b:widget-setting>
-                </b:widget-settings>
-                <b:includable id="main">
-
-                    <div class="px-6 lg:px-8">
-                        <div class="mx-auto max-w-2xl lg:max-w-7xl">
-
-                            <!-- Subtitle -->
-                            <h2
-                                class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase">
-                                Blog
-                            </h2>
-
-                            <!-- Blog Title -->
-                            <h1
-                                class="mt-2 text-4xl font-semibold tracking-tighter text-gray-950 sm:text-6xl">
-                                <data:title />
-                            </h1>
-
-                            <!-- Blog Description / fallback -->
-                            <p class="mt-6 max-w-3xl text-2xl font-semibold text-gray-500">
-                                <b:if cond='data:content'>
-                                    <data:content />
-                                </b:if>
-                            </p>
-
+        <b:if cond='data:view.isHomepage'>
+            <b:section id="hero" class="hero" showaddelement="true">
+                <b:widget id="HTML1" type="HTML" title="Hero title" locked="true">
+                    <b:widget-settings>
+                        <b:widget-setting name='content'>Update the content in the HTML widget from
+                            the
+                            hero section</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id="main">
+                        <div class="px-6 lg:px-8">
+                            <div class="mx-auto max-w-2xl lg:max-w-7xl">
+                                <h2
+                                    class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase">
+                                    Blog
+                                </h2>
+                                <h1
+                                    class="mt-2 text-4xl font-semibold tracking-tighter text-gray-950 sm:text-6xl">
+                                    <data:title />
+                                </h1>
+                                <p class="mt-6 max-w-3xl text-2xl text-gray-500">
+                                    <b:if cond='data:content'>
+                                        <data:content />
+                                    </b:if>
+                                </p>
+                            </div>
                         </div>
+                    </b:includable>
+                </b:widget>
+            </b:section>
+
+
+            <div class="mt-16 bg-linear-to-t from-gray-100 pb-14">
+                <div class="px-6 lg:px-8">
+                    <div class="mx-auto max-w-2xl lg:max-w-7xl">
+                        <h2 class="text-2xl font-medium tracking-tight">Recommended reads</h2>
+                        <b:section id="featured" class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
+                            <b:widget id='Blog1' locked='false' title='Blog'
+                                type='Blog' visible='true'>
+                                <b:widget-settings>
+                                    <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
+                                </b:widget-settings>
+                                <b:includable id='main'>
+                                    <div
+                                        class="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5">
+                                        <a expr:href="data:posts.first.url"
+                                            class="block overflow-hidden rounded-2xl">
+                                            <b:if cond='data:posts.first.featuredImage'>
+                                                <img
+                                                    alt="A crossed out European emblem"
+                                                    class="aspect-3/2 w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                                                    expr:src="data:posts.first.featuredImage" />
+                                                <b:else />
+                                                <div
+                                                    class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
+                                                    <span class="text-gray-400 text-sm">No Image</span>
+                                                </div>
+                                            </b:if>
+                                        </a>
+                                        <div class="flex flex-1 flex-col p-8">
+                                            <div class="text-sm/5 text-gray-700">
+                                                <span
+                                                    class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
+                                                    new</span>
+                                                <b:if cond='data:posts.first.labels.first'>
+                                                    <a expr:href="data:posts.first.labels.first.url"
+                                                        class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
+                                                        <data:posts.first.labels.first.name />
+                                                    </a>
+                                                </b:if>
+                                            </div>
+                                            <a class="group block" expr:href="data:posts.first.url">
+                                                <div
+                                                    class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+
+                                                    <div class="mt-2 text-base/7 font-medium">
+                                                        <data:posts.first.title />
+                                                    </div>
+
+                                                    <div class="mt-2 flex-1 text-sm/6 text-gray-500">
+                                                        <data:posts.first.snippets.short />
+                                                    </div>
+
+                                                    <div class="mt-6 flex items-center gap-3">
+                                                        <div
+                                                            class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
+                                                            Read more <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 24 24"
+                                                                class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
+                                                                <title>chevron-right</title>
+                                                                <path
+                                                                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </b:includable>
+                            </b:widget>
+                            <b:widget id='FeaturedPost1' locked='false' title='Featured Post'
+                                type='FeaturedPost' visible='true'>
+                                <b:includable id='main'>
+                                    <div
+                                        class="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5">
+                                        <a expr:href="data:posts.first.url"
+                                            class="block overflow-hidden rounded-2xl">
+                                            <b:if cond='data:posts.first.featuredImage'>
+                                                <img
+                                                    alt="A crossed out European emblem"
+                                                    class="aspect-3/2 w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                                                    expr:src="data:posts.first.featuredImage" />
+                                                <b:else />
+                                                <div
+                                                    class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
+                                                    <span class="text-gray-400 text-sm">No Image</span>
+                                                </div>
+                                            </b:if>
+                                        </a>
+                                        <div class="flex flex-1 flex-col p-8">
+                                            <div class="text-sm/5 text-gray-700">
+                                                <span
+                                                    class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
+                                                    featured</span>
+                                                <b:if cond='data:posts.first.labels.first'>
+                                                    <a expr:href="data:posts.first.labels.first.url"
+                                                        class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
+                                                        <data:posts.first.labels.first.name />
+                                                    </a>
+                                                </b:if>
+                                            </div>
+                                            <a class="group block" expr:href="data:posts.first.url">
+                                                <div
+                                                    class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+
+                                                    <div class="mt-2 text-base/7 font-medium">
+                                                        <data:posts.first.title />
+                                                    </div>
+
+                                                    <div class="mt-2 flex-1 text-sm/6 text-gray-500">
+                                                        <data:posts.first.snippets.short />
+                                                    </div>
+
+                                                    <div class="mt-6 flex items-center gap-3">
+                                                        <div
+                                                            class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
+                                                            Read more <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 24 24"
+                                                                class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
+                                                                <title>chevron-right</title>
+                                                                <path
+                                                                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </b:includable>
+                            </b:widget>
+                            <b:widget id='PopularPosts1' locked='false' title='Popular Posts'
+                                type='PopularPosts' visible='true'>
+                                <b:widget-settings>
+                                    <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
+                                </b:widget-settings>
+                                <b:includable id='main'>
+                                    <div
+                                        class="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5">
+                                        <a expr:href="data:posts.first.url"
+                                            class="block overflow-hidden rounded-2xl">
+                                            <b:if cond='data:posts.first.featuredImage'>
+                                                <img
+                                                    alt="A crossed out European emblem"
+                                                    class="aspect-3/2 w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                                                    expr:src="data:posts.first.featuredImage" />
+                                                <b:else />
+                                                <div
+                                                    class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
+                                                    <span class="text-gray-400 text-sm">No Image</span>
+                                                </div>
+                                            </b:if>
+                                        </a>
+
+                                        <div class="flex flex-1 flex-col p-8">
+                                            <div class="text-sm/5 text-gray-700">
+                                                <span
+                                                    class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
+                                                    popular</span>
+                                                <b:if cond='data:posts.first.labels.first'>
+                                                    <a expr:href="data:posts.first.labels.first.url"
+                                                        class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
+                                                        <data:posts.first.labels.first.name />
+                                                    </a>
+                                                </b:if>
+                                            </div>
+                                            <a class="group block" expr:href="data:posts.first.url">
+                                                <div
+                                                    class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+
+                                                    <div class="mt-2 text-base/7 font-medium">
+                                                        <data:posts.first.title />
+                                                    </div>
+
+                                                    <div class="mt-2 flex-1 text-sm/6 text-gray-500">
+                                                        <data:posts.first.snippets.short />
+                                                    </div>
+
+                                                    <div class="mt-6 flex items-center gap-3">
+                                                        <div
+                                                            class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
+                                                            Read more <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 24 24"
+                                                                class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
+                                                                <title>chevron-right</title>
+                                                                <path
+                                                                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </b:includable>
+                            </b:widget>
+                        </b:section>
                     </div>
-
-                </b:includable>
-            </b:widget>
-
-        </b:section>
-
-
+                </div>
+            </div>
+        </b:if>
     </body>
 
 </html>
