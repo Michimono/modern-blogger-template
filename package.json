@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
     "build:html": "node inline-css.mjs",
     "build": "npm run build:css && npm run build:html"
   },

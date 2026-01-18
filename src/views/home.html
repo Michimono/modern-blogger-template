@@ -1,0 +1,349 @@
+<b:if cond='data:view.isHomepage'>
+    <!-- HERO -->
+    <b:section id="hero" class="hero" showaddelement="true">
+        <b:widget id="HTML1" type="HTML" title="Hero title" locked="true">
+            <b:widget-settings>
+                <b:widget-setting name='content'>Update the content in the HTML widget from
+                    the
+                    hero section</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id="main">
+                <div class="px-6 lg:px-8">
+                    <div class="mx-auto max-w-2xl lg:max-w-7xl">
+                        <h2 class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase">
+                            Blog
+                        </h2>
+                        <h1 class="mt-2 text-4xl font-semibold tracking-tighter text-gray-950 sm:text-6xl">
+                            <data:title />
+                        </h1>
+                        <p class="mt-6 max-w-3xl text-2xl text-gray-500">
+                            <b:if cond='data:content'>
+                                <data:content />
+                            </b:if>
+                        </p>
+                    </div>
+                </div>
+            </b:includable>
+        </b:widget>
+    </b:section>
+
+    <!-- FEATURED ARTICLES -->
+    <div class="mt-16 bg-linear-to-t from-gray-100 pb-14">
+        <div class="px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:max-w-7xl">
+                <h2 class="text-2xl font-medium tracking-tight">Recommended reads</h2>
+                <b:section id="featured" class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <b:widget id='Blog1' locked='false' title='Blog' type='Blog' visible='true'>
+                        <b:widget-settings>
+                            <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                            <div
+                                class="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5">
+                                <a expr:href="data:posts.first.url" class="block overflow-hidden rounded-2xl">
+                                    <b:if cond='data:posts.first.featuredImage'>
+                                        <img alt="A crossed out European emblem"
+                                            class="aspect-3/2 w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                                            expr:src="data:posts.first.featuredImage" />
+                                        <b:else />
+                                        <div
+                                            class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105">
+                                            <span class="text-gray-400 text-sm">No Image</span>
+                                        </div>
+                                    </b:if>
+                                </a>
+                                <div class="flex flex-1 flex-col p-8">
+                                    <div class="text-sm/5 text-gray-700">
+                                        <span
+                                            class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
+                                            new</span>
+                                        <b:if cond='data:posts.first.labels.first'>
+                                            <a expr:href="data:posts.first.labels.first.url"
+                                                class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
+                                                <data:posts.first.labels.first.name />
+                                            </a>
+                                        </b:if>
+                                    </div>
+                                    <a class="group block" expr:href="data:posts.first.url">
+                                        <div
+                                            class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+
+                                            <div class="mt-2 text-base/7 font-medium">
+                                                <data:posts.first.title />
+                                            </div>
+
+                                            <div class="mt-2 flex-1 text-sm/6 text-gray-500">
+                                                <data:posts.first.snippets.short />
+                                            </div>
+
+                                            <div class="mt-6 flex items-center gap-3">
+                                                <div
+                                                    class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
+                                                    Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
+                                                        <title>chevron-right</title>
+                                                        <path
+                                                            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                    <b:widget id='FeaturedPost1' locked='false' title='Featured Post' type='FeaturedPost'
+                        visible='true'>
+                        <b:includable id='main'>
+                            <div
+                                class="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5">
+                                <a expr:href="data:posts.first.url" class="block overflow-hidden rounded-2xl">
+                                    <b:if cond='data:posts.first.featuredImage'>
+                                        <img alt="A crossed out European emblem"
+                                            class="aspect-3/2 w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                                            expr:src="data:posts.first.featuredImage" />
+                                        <b:else />
+                                        <div class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
+                                            <span class="text-gray-400 text-sm">No Image</span>
+                                        </div>
+                                    </b:if>
+                                </a>
+                                <div class="flex flex-1 flex-col p-8">
+                                    <div class="text-sm/5 text-gray-700">
+                                        <span
+                                            class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
+                                            featured</span>
+                                        <b:if cond='data:posts.first.labels.first'>
+                                            <a expr:href="data:posts.first.labels.first.url"
+                                                class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
+                                                <data:posts.first.labels.first.name />
+                                            </a>
+                                        </b:if>
+                                    </div>
+                                    <a class="group block" expr:href="data:posts.first.url">
+                                        <div
+                                            class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+
+                                            <div class="mt-2 text-base/7 font-medium">
+                                                <data:posts.first.title />
+                                            </div>
+
+                                            <div class="mt-2 flex-1 text-sm/6 text-gray-500">
+                                                <data:posts.first.snippets.short />
+                                            </div>
+
+                                            <div class="mt-6 flex items-center gap-3">
+                                                <div
+                                                    class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
+                                                    Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
+                                                        <title>chevron-right</title>
+                                                        <path
+                                                            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                    <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts'
+                        visible='true'>
+                        <b:widget-settings>
+                            <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                            <div
+                                class="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5">
+                                <a expr:href="data:posts.first.url" class="block overflow-hidden rounded-2xl">
+                                    <b:if cond='data:posts.first.featuredImage'>
+                                        <img alt="A crossed out European emblem"
+                                            class="aspect-3/2 w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                                            expr:src="data:posts.first.featuredImage" />
+                                        <b:else />
+                                        <div class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
+                                            <span class="text-gray-400 text-sm">No Image</span>
+                                        </div>
+                                    </b:if>
+                                </a>
+
+                                <div class="flex flex-1 flex-col p-8">
+                                    <div class="text-sm/5 text-gray-700">
+                                        <span
+                                            class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
+                                            popular</span>
+                                        <b:if cond='data:posts.first.labels.first'>
+                                            <a expr:href="data:posts.first.labels.first.url"
+                                                class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
+                                                <data:posts.first.labels.first.name />
+                                            </a>
+                                        </b:if>
+                                    </div>
+                                    <a class="group block" expr:href="data:posts.first.url">
+                                        <div
+                                            class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+
+                                            <div class="mt-2 text-base/7 font-medium">
+                                                <data:posts.first.title />
+                                            </div>
+
+                                            <div class="mt-2 flex-1 text-sm/6 text-gray-500">
+                                                <data:posts.first.snippets.short />
+                                            </div>
+
+                                            <div class="mt-6 flex items-center gap-3">
+                                                <div
+                                                    class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
+                                                    Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
+                                                        <title>chevron-right</title>
+                                                        <path
+                                                            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG POSTS-->
+    <div class="mt-16 pb-24 px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:max-w-7xl">
+            <div class="flex flex-wrap items-center justify-end gap-2">
+                <a class="gap-1 inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
+                    expr:href='data:blog.homepageUrl + "/feeds/posts/default"'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"
+                        data-slot="icon" class="size-4">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M2 2.75A.75.75 0 0 1 2.75 2C8.963 2 14 7.037 14 13.25a.75.75 0 0 1-1.5 0c0-5.385-4.365-9.75-9.75-9.75A.75.75 0 0 1 2 2.75Zm0 4.5a.75.75 0 0 1 .75-.75 6.75 6.75 0 0 1 6.75 6.75.75.75 0 0 1-1.5 0C8 10.35 5.65 8 2.75 8A.75.75 0 0 1 2 7.25ZM3.5 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" />
+                    </svg>
+                    RSS Feed </a>
+
+            </div>
+            <b:section id="blog">
+                <b:widget id='Blog2' locked='false' title='Blog' type='Blog'>
+                    <b:widget-settings>
+                        <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                        <div class="mt-6">
+                            <b:loop values='data:posts' var='post'>
+                                <div
+                                    class="relative grid grid-cols-1 border-b border-b-gray-100 py-10 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3">
+                                    <div>
+                                        <a expr:href="data:post.url" class="flex justify-center sm:justify-start">
+                                            <b:if cond='data:post.featuredImage'>
+                                                <img alt="A crossed out European emblem"
+                                                    class="aspect-3/2 w-1/2 object-cover transition-transform duration-300 ease-out hover:scale-105 rounded-lg"
+                                                    expr:src="data:post.featuredImage" />
+                                                <b:else />
+                                                <div
+                                                    class="aspect-3/2 w-1/2 bg-gray-200 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105">
+                                                    <span class="text-gray-400 text-sm">No
+                                                        Image</span>
+                                                </div>
+                                            </b:if>
+                                        </a>
+                                    </div>
+                                    <a expr:href="data:post.url" class="group">
+                                        <div
+                                            class="transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-left">
+                                            <div class="sm:col-span-2 sm:max-w-2xl">
+
+                                                <h2 class="text-sm/5 font-semibold">
+                                                    <data:post.title />
+                                                </h2>
+                                                <p class="mt-3 text-sm/6 text-gray-500">
+                                                    <data:post.snippets.short />
+                                                </p>
+                                                <div class="mt-4">
+                                                    <div class="flex items-center gap-1 text-sm/5 font-semibold">
+                                                        Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"
+                                                            data-slot="icon" class="size-4 fill-gray-400">
+                                                            <path fill-rule="evenodd"
+                                                                d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
+                                                                clip-rule="evenodd">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </b:loop>
+
+                        </div>
+                        <div class="mt-6 flex items-center justify-between gap-2">
+                            <b:if cond="data:newerPageUrl">
+                                <a class="inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
+                                    expr:href="data:newerPageUrl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                        aria-hidden="true" data-slot="icon" class="size-4">
+                                        <path fill-rule="evenodd"
+                                            d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z"
+                                            clip-rule="evenodd">
+                                        </path>
+                                    </svg>
+                                    Previous </a>
+                                <b:else />
+                                <button
+                                    class="inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
+                                    type="button" disabled="" data-disabled="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                        aria-hidden="true" data-slot="icon" class="size-4">
+                                        <path fill-rule="evenodd"
+                                            d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z"
+                                            clip-rule="evenodd">
+                                        </path>
+                                    </svg>
+                                    Previous </button>
+                            </b:if>
+
+                            <b:if cond="data:olderPageUrl">
+                                <a class="inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
+                                    expr:href="data:olderPageUrl">Next <svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon"
+                                        class="size-4">
+                                        <path fill-rule="evenodd"
+                                            d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <b:else />
+                                <button
+                                    class="inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
+                                    type="button" disabled="" data-disabled=""> Next <svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                        aria-hidden="true" data-slot="icon" class="size-4">
+                                        <path fill-rule="evenodd"
+                                            d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </b:if>
+                        </div>
+                    </b:includable>
+                </b:widget>
+            </b:section>
+        </div>
+    </div>
+</b:if>

@@ -1,0 +1,8 @@
+<b:if cond='data:blog.pageType == &quot;index&quot;'>
+    <div itemscope='itemscope' itemtype='http://schema.org/Blog' style='display: none;'>
+        <meta expr:content='data:blog.title' itemprop='name' />
+        <b:if cond='data:blog.metaDescription'>
+            <meta expr:content='data:blog.metaDescription' itemprop='description' />
+        </b:if>
+    </div>
+</b:if>
