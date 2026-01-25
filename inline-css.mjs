@@ -4,7 +4,7 @@ const srcXml = "./src/index.xml";
 const distXml = "./dist/index.xml";
 const cssPath = "./dist/output.css";
 
-const xml = fs.readFileSync(srcXml, "utf8");
+let xml = fs.readFileSync(srcXml, "utf8");
 const css = fs.readFileSync(cssPath, "utf8");
 
 xml = xml.replace(
