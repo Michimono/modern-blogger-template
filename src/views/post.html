@@ -1,0 +1,182 @@
+<b:section id='SinglePost' showaddelement='yes'>
+    <b:widget id='Blog3' locked='false' title='Single blog post' type='Blog' version='2' visible='true'>
+        <b:includable id='main'>
+            <b:if cond='data:view.isSingleItem'>
+                <b:loop values='data:posts' var='post'>
+                    <div class="mx-auto max-w-2xl lg:max-w-7xl">
+                        <h2
+                            class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase data-dark:text-gray-400">
+                            <data:post.date />
+                        </h2>
+                        <h1
+                            class="mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 data-dark:text-white sm:text-6xl">
+                            <data:post.title />
+                        </h1>
+                        <div
+                            class="mt-16 grid grid-cols-1 gap-8 pb-24 lg:grid-cols-[15rem_1fr] xl:grid-cols-[15rem_1fr_15rem]">
+                            <div
+                                class="flex flex-wrap items-center gap-8 max-lg:justify-between lg:flex-col lg:items-start">
+                                <div class="flex items-center gap-3"><!-- Set A – Most common (v2 official) -->
+
+                                    <div class="text-sm/5 text-gray-700">
+                                        <!-- Here a small descrtiption same for all posts can go -->
+                                    </div>
+                                </div>
+
+                                <b:if cond='data:post.labels'>
+                                    <div class="flex flex-wrap gap-2">
+                                        <b:loop values='data:post.labels' var='label'>
+                                            <a class="rounded-full border border-dotted border-gray-300 bg-gray-50 px-2 text-sm/6 font-medium text-gray-500"
+                                                data-headlessui-state="" expr:href='data:label.url'>
+                                                <data:label.name />
+                                            </a>
+                                        </b:loop>
+                                    </div>
+                                </b:if>
+                            </div>
+                            <div class="text-gray-700">
+                                <div id="post-body" class="px-4 sm:px-0 max-w-2xl xl:mx-auto">
+
+                                    <data:post.body />
+
+                                    <hr class="my-8 border-t border-gray-200" />
+                                    <div class="mt-10"><a
+                                            class="inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
+                                            data-headlessui-state="" href="/"><svg xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"
+                                                data-slot="icon" class="size-4">
+                                                <path fill-rule="evenodd"
+                                                    d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>Back to blog
+                                        </a>
+                                    </div>
+                                    <!-- COMMENTS -->
+                                    <section class="relative">
+                                        <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+                                            <div
+                                                class="w-full flex-col justify-start items-start lg:gap-10 gap-6 inline-flex">
+                                                <h2
+                                                    class="text-gray-900 text-3xl font-bold font-manrope leading-normal">
+                                                    <b:if cond='data:post.numberOfComments &gt; 0'>
+                                                        <b:message name='messages.numberOfComments'>
+                                                            <b:param expr:value='data:post.numberOfComments'
+                                                                name='numComments' />
+                                                        </b:message>
+                                                        <b:else />
+                                                        <data:messages.postAComment />
+                                                    </b:if>
+                                                </h2>
+                                                <div class='comment-form w-full'>
+                                                    <iframe allowtransparency='allowtransparency'
+                                                        class='blogger-iframe-colorize blogger-comment-from-post'
+                                                        height='200px' frameborder='0' id='comment-editor'
+                                                        name='comment-editor' expr:src='data:post.commentFormIframeSrc'
+                                                        width='100%'>
+                                                    </iframe>
+                                                    <data:post.cmtfpIframe />
+                                                    <script type='text/javascript'>
+                                                        BLOG_CMT_createIframe('<data:post.appRpcRelayPath />');
+                                                    </script>
+
+
+                                                </div>
+
+
+                                                <div
+                                                    class="w-full flex-col justify-start items-start lg:gap-9 gap-6 flex">
+                                                    <div class="w-full flex-col justify-start items-start gap-8 flex">
+                                                        <div class="w-full flex-col justify-start items-end gap-5 flex">
+                                                            <!-- COMMENT -->
+                                                            <b:loop values='data:post.comments' var='comment'>
+                                                                <div expr:id='&quot;c&quot; + data:comment.id'
+                                                                    class="w-full p-6 bg-white rounded-2xl border border-gray-200 flex-col justify-start items-start gap-8 flex">
+                                                                    <div
+                                                                        class="w-full flex-col justify-center items-start gap-3.5 flex">
+                                                                        <div
+                                                                            class="w-full justify-between items-center inline-flex">
+                                                                            <div
+                                                                                class="justify-start items-center gap-2.5 flex">
+                                                                                <div
+                                                                                    class="rounded-full justify-start items-start gap-2.5 flex">
+                                                                                    <img class="rounded-full object-cover"
+                                                                                        expr:src='data:comment.authorAvatarSrc'
+                                                                                        expr:alt='data:comment.author + " image"' />
+                                                                                </div>
+                                                                                <div
+                                                                                    class="flex-col justify-start items-start gap-1 inline-flex">
+                                                                                    <h5
+                                                                                        class="text-gray-900 text-sm font-semibold leading-snug">
+                                                                                        <data:comment.author />
+                                                                                    </h5>
+                                                                                    <h6
+                                                                                        class="text-gray-500 text-xs font-normal leading-5">
+                                                                                        <data:comment.timestamp />
+                                                                                    </h6>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p
+                                                                            class="text-gray-800 text-sm font-normal leading-snug">
+                                                                            <data:comment.body />
+                                                                        </p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="w-full justify-between items-center inline-flex">
+                                                                        <div
+                                                                            class="justify-start items-center gap-4 flex">
+                                                                            <div
+                                                                                class="justify-start items-center gap-1.5 flex">
+                                                                                <a href="">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="24" height="24"
+                                                                                        viewBox="0 0 24 24" fill="none">
+                                                                                        <path
+                                                                                            d="M7.04962 9.99504L7 10M12 10L11.9504 10.005M17 10L16.9504 10.005M10.5 3H13.5C16.7875 3 18.4312 3 19.5376 3.90796C19.7401 4.07418 19.9258 4.25989 20.092 4.46243C21 5.56878 21 7.21252 21 10.5V12.4777C21 13.8941 21 14.6023 20.8226 15.1779C20.4329 16.4427 19.4427 17.4329 18.1779 17.8226C17.6023 18 16.8941 18 15.4777 18C15.0811 18 14.8828 18 14.6985 18.0349C14.2966 18.1109 13.9277 18.3083 13.6415 18.6005C13.5103 18.7345 13.4003 18.8995 13.1803 19.2295L13.1116 19.3326C12.779 19.8316 12.6126 20.081 12.409 20.198C12.1334 20.3564 11.7988 20.3743 11.5079 20.2462C11.2929 20.1515 11.101 19.9212 10.7171 19.4605L10.2896 18.9475C10.1037 18.7244 10.0108 18.6129 9.90791 18.5195C9.61025 18.2492 9.23801 18.0748 8.83977 18.0192C8.70218 18 8.55699 18 8.26662 18C7.08889 18 6.50002 18 6.01542 17.8769C4.59398 17.5159 3.48406 16.406 3.12307 14.9846C3 14.5 3 13.9111 3 12.7334V10.5C3 7.21252 3 5.56878 3.90796 4.46243C4.07418 4.25989 4.25989 4.07418 4.46243 3.90796C5.56878 3 7.21252 3 10.5 3Z"
+                                                                                            stroke="black"
+                                                                                            stroke-width="1.6"
+                                                                                            stroke-linecap="round" />
+                                                                                    </svg>
+                                                                                </a>
+                                                                                <h5
+                                                                                    class="text-gray-900 text-sm font-normal leading-snug">
+                                                                                    <!-- Reply button -->
+                                                                                    <button
+                                                                                        class="reply-btn text-blue-500"
+                                                                                        expr:data-comment-id='data:comment.id'
+                                                                                        onclick='window.goog.comments.loadQueue[0].onReply(this.getAttribute("data-comment-id"), "c" + this.getAttribute("data-comment-id")); return false;'>
+                                                                                        Reply
+                                                                                    </button>
+
+                                                                                </h5>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </b:loop>
+                                                            <!-- REPLIES -->
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- END COMMENTS-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </b:loop>
+
+
+            </b:if>
+        </b:includable>
+
+    </b:widget>
+
+
+</b:section>

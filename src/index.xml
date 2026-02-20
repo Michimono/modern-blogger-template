@@ -13,16 +13,12 @@
     xmlns:expr="http://www.google.com/2005/gml/expr"
     xmlns:mono="urn:monoblogger"
 >
-
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="stylesheet" href="__TAILWIND__" />
-        <link
-            href="https://api.fontshare.com/v2/css?f[]=switzer@1,2,3,4,5,6,7,8,9&quot;display=swap"
-            rel="stylesheet" />
+        <link rel="stylesheet" href="https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&amp;display=swap"></link>
     </head>
 
     <body>
@@ -34,6 +30,10 @@
         <mono:include file="views/home.html" />
 
         <mono:include file="views/posts.html" />
+
+        <mono:include file="views/post.html" />
+
+        <mono:include file="views/libraries.html" />
 
     </body>
 
