@@ -22,6 +22,41 @@
 
                         <div class="mt-6">
                             <b:loop values='data:posts' var='post'>
+                                <script type='application/ld+json'>
+                                    {
+                                        "@context": "http://schema.org",
+                                        "@type": "BlogPosting",
+                                        "mainEntityOfPage": {
+                                            "@type": "WebPage",
+                                            "@id": "<b:eval expr='data:post.url'/>"
+                                        },
+                                        "headline": "<b:eval expr='data:post.title'/>",
+                                        "description": "<b:eval expr='data:post.snippets.short'/>",
+                                        "datePublished": "<b:eval expr='data:post.date.iso8601'/>",
+                                        "dateModified": "<b:eval expr='data:post.lastUpdated.iso8601'/>",
+                                        "image": {
+                                            "@type": "ImageObject",
+                                            "url": "<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)' />",
+                                            "height": 630,
+                                            "width": 1200
+                                        },
+                                        "publisher": {
+                                            "@type": "Organization",
+                                            "name": "Aimentia",
+                                            "logo": 
+                                            {
+                                                "@type": "ImageObject",
+                                                "url": "https://cdn.prod.website-files.com/682a8fd588cec92c59cad9bb/6842683501461b01b907e838_Frame%201.jpg",
+                                                "width": 584,
+                                                "height": 244
+                                            }
+                                        },
+                                        "author": {
+                                            "@type": "Organization",
+                                            "name": "Aimentia"
+                                        }
+                                    }
+                                </script>
                                 <div
                                     class="relative grid grid-cols-1 border-b border-b-gray-100 py-10 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3">
                                     <div class="flex flex-col items-center sm:items-start gap-2">
