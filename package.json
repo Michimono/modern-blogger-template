@@ -12,13 +12,11 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "build:html": "node inline-css.mjs",
-    "build": "npm run build:css && npm run build:html"
+    "build": "node build.mjs"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.18",
