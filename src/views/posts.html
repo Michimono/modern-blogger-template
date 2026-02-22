@@ -3,7 +3,7 @@
     <div class="mt-16 pb-24 px-6 lg:px-8 bg-linear-to-t from-gray-100">
         <div class="mx-auto max-w-2xl lg:max-w-7xl">
             <div class="flex flex-wrap items-center justify-between gap-2">
-                <h2 class="text-2xl font-medium tracking-tight">Blog posts</h2>
+                <h2 class="text-2xl font-medium tracking-tight">{{labels.blogPosts}}</h2>
                 <a class="gap-1 inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50"
                     expr:href='data:blog.homepageUrl + &quot;/feeds/posts/default&quot;'>
                     <svg aria-hidden="true" class="size-4" data-slot="icon" fill="currentColor" viewBox="0 0 16 16"
@@ -13,7 +13,7 @@
                             fill-rule="evenodd">
                         </path>
                     </svg>
-                    RSS Feed
+                    {{labels.rssFeed}}
                 </a>
             </div>
             <b:section id='blog'>
@@ -42,18 +42,18 @@
                                         },
                                         "publisher": {
                                             "@type": "Organization",
-                                            "name": "Aimentia",
+                                            "name": "{{organization.name}}",
                                             "logo": 
                                             {
                                                 "@type": "ImageObject",
-                                                "url": "https://cdn.prod.website-files.com/682a8fd588cec92c59cad9bb/6842683501461b01b907e838_Frame%201.jpg",
+                                                "url": "{{organization.logo}}",
                                                 "width": 584,
                                                 "height": 244
                                             }
                                         },
                                         "author": {
                                             "@type": "Organization",
-                                            "name": "Aimentia"
+                                            "name": "{{organization.name}}"
                                         }
                                     }
                                 </script>
@@ -71,7 +71,7 @@
                                                 <b:else />
                                                 <div
                                                     class='aspect-3/2 w-full bg-gray-200 flex items-center justify-center rounded-lg transition-transform duration-300 ease-out hover:scale-105'>
-                                                    <span class='text-gray-400 text-sm'>No Image</span>
+                                                    <span class='text-gray-400 text-sm'>{{labels.noImage}}</span>
                                                 </div>
                                             </b:if>
 
@@ -103,7 +103,7 @@
                                                 </p>
                                                 <div class="mt-4">
                                                     <div class="flex items-center gap-1 text-sm/5 font-semibold">
-                                                        Read more <svg aria-hidden="true" class="size-4 fill-gray-400"
+                                                        {{labels.readMore}} <svg aria-hidden="true" class="size-4 fill-gray-400"
                                                             data-slot="icon" fill="currentColor" viewBox="0 0 16 16"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path clip-rule="evenodd"
@@ -130,7 +130,7 @@
                                             fill-rule='evenodd'>
                                         </path>
                                     </svg>
-                                    Previous </a>
+                                    {{labels.previous}} </a>
                                 <b:else />
                                 <button
                                     class='inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50'
@@ -142,11 +142,11 @@
                                             fill-rule='evenodd'>
                                         </path>
                                     </svg>
-                                    Previous </button>
+                                    {{labels.previous}} </button>
                             </b:if>
                             <b:if cond='data:olderPageUrl'>
                                 <a class='inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50'
-                                    expr:href='data:olderPageUrl'>Next <svg aria-hidden='true' class='size-4'
+                                    expr:href='data:olderPageUrl'>{{labels.next}} <svg aria-hidden='true' class='size-4'
                                         data-slot='icon' fill='currentColor' viewBox='0 0 16 16'
                                         xmlns='http://www.w3.org/2000/svg'>
                                         <path clip-rule='evenodd'
@@ -157,7 +157,7 @@
                                 <b:else />
                                 <button
                                     class='inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)] rounded-lg border border-transparent shadow-sm ring-1 ring-black/10 text-sm font-medium whitespace-nowrap text-gray-950 data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50'
-                                    data-disabled='' disabled='' type='button'> Next <svg aria-hidden='true'
+                                    data-disabled='' disabled='' type='button'> {{labels.next}} <svg aria-hidden='true'
                                         class='size-4' data-slot='icon' fill='currentColor' viewBox='0 0 16 16'
                                         xmlns='http://www.w3.org/2000/svg'>
                                         <path clip-rule='evenodd'

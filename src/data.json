@@ -1,0 +1,23 @@
+{
+    "organization": {
+        "name": "Aimentia",
+        "url": "/",
+        "logo": "https://cdn.prod.website-files.com/682a8fd588cec92c59cad9bb/6842683501461b01b907e838_Frame%201.jpg"
+    },
+    "labels": {
+        "search": "Buscar",
+        "readMore": "Leer más",
+        "noImage": "No Image",
+        "blog": "Blog",
+        "blogPosts": "Blog posts",
+        "recommendedReads": "Lecturas recomendadas",
+        "rssFeed": "RSS Feed",
+        "backToBlog": "Volver al blog",
+        "reply": "Responder",
+        "new": "nuevo",
+        "featured": "destacado",
+        "popular": "popular",
+        "previous": "Anterior",
+        "next": "Siguiente"
+    }
+}

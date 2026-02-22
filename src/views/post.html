@@ -23,18 +23,18 @@
                             },
                             "publisher": {
                                 "@type": "Organization",
-                                "name": "Aimentia",
+                                "name": "{{organization.name}}",
                                 "logo": 
                                 {
                                     "@type": "ImageObject",
-                                    "url": "https://cdn.prod.website-files.com/682a8fd588cec92c59cad9bb/6842683501461b01b907e838_Frame%201.jpg",
+                                    "url": "{{organization.logo}}",
                                     "width": 584,
                                     "height": 244
                                 }
                             },
                             "author": {
                                 "@type": "Organization",
-                                "name": "Aimentia"
+                                "name": "{{organization.name}}"
                             }
                         }
                     </script>
@@ -85,7 +85,7 @@
                                                 <path fill-rule="evenodd"
                                                     d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z"
                                                     clip-rule="evenodd"></path>
-                                            </svg>Back to blog
+                                            </svg>{{labels.backToBlog}}
                                         </a>
                                     </div>
                                     <!-- COMMENTS -->
@@ -182,7 +182,7 @@
                                                                                         class="reply-btn text-blue-500"
                                                                                         expr:data-comment-id='data:comment.id'
                                                                                         onclick='window.goog.comments.loadQueue[0].onReply(this.getAttribute("data-comment-id"), "c" + this.getAttribute("data-comment-id")); return false;'>
-                                                                                        Reply
+                                                                                        {{labels.reply}}
                                                                                     </button>
 
                                                                                 </h5>

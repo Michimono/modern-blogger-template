@@ -1,12 +1,12 @@
 <b:if cond='data:view.isHomepage'>
     <!-- HERO -->
     <b:section id="hero" class="hero" showaddelement="true">
-        <b:widget id="HTML1" type="HTML" title="Hero title" locked="true">
+        <b:widget id="HTML1" type="HTML" locked="true">
             <b:includable id="main">
                 <div class="px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:max-w-7xl">
                         <h2 class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase">
-                            Blog
+                            {{labels.blog}}
                         </h2>
                         <h1 class="mt-2 text-4xl font-semibold tracking-tighter text-gray-950 sm:text-6xl">
                             <data:title />
@@ -43,7 +43,7 @@
                                         <b:else />
                                         <div
                                             class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105">
-                                            <span class="text-gray-400 text-sm">No Image</span>
+                                            <span class="text-gray-400 text-sm">{{labels.noImage}}</span>
                                         </div>
                                     </b:if>
                                 </a>
@@ -51,7 +51,7 @@
                                     <div class="text-sm/5 text-gray-700">
                                         <span
                                             class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
-                                            new</span>
+                                            {{labels.new}}</span>
                                         <b:if cond='data:posts.first.labels.first'>
                                             <a expr:href="data:posts.first.labels.first.url"
                                                 class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
@@ -74,7 +74,7 @@
                                             <div class="mt-6 flex items-center gap-3">
                                                 <div
                                                     class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
-                                                    Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                    {{labels.readMore}} <svg xmlns="http://www.w3.org/2000/svg"
                                                         viewBox="0 0 24 24"
                                                         class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
                                                         <title>chevron-right</title>
@@ -102,7 +102,7 @@
                                             expr:src="data:posts.first.featuredImage" />
                                         <b:else />
                                         <div class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
-                                            <span class="text-gray-400 text-sm">No Image</span>
+                                            <span class="text-gray-400 text-sm">{{labels.noImage}}</span>
                                         </div>
                                     </b:if>
                                 </a>
@@ -110,7 +110,7 @@
                                     <div class="text-sm/5 text-gray-700">
                                         <span
                                             class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
-                                            featured</span>
+                                            {{labels.featured}}</span>
                                         <b:if cond='data:posts.first.labels.first'>
                                             <a expr:href="data:posts.first.labels.first.url"
                                                 class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
@@ -133,7 +133,7 @@
                                             <div class="mt-6 flex items-center gap-3">
                                                 <div
                                                     class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
-                                                    Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                    {{labels.readMore}} <svg xmlns="http://www.w3.org/2000/svg"
                                                         viewBox="0 0 24 24"
                                                         class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
                                                         <title>chevron-right</title>
@@ -164,7 +164,7 @@
                                             expr:src="data:posts.first.featuredImage" />
                                         <b:else />
                                         <div class="aspect-3/2 w-full bg-gray-200 flex items-center justify-center">
-                                            <span class="text-gray-400 text-sm">No Image</span>
+                                            <span class="text-gray-400 text-sm">{{labels.noImage}}</span>
                                         </div>
                                     </b:if>
                                 </a>
@@ -173,7 +173,7 @@
                                     <div class="text-sm/5 text-gray-700">
                                         <span
                                             class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
-                                            popular</span>
+                                            {{labels.popular}}</span>
                                         <b:if cond='data:posts.first.labels.first'>
                                             <a expr:href="data:posts.first.labels.first.url"
                                                 class="hover:bg-blue-600/20 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">
@@ -196,7 +196,7 @@
                                             <div class="mt-6 flex items-center gap-3">
                                                 <div
                                                     class="flex items-center gap-1 text-sm/5 font-semibold group-hover:underline">
-                                                    Read more <svg xmlns="http://www.w3.org/2000/svg"
+                                                    {{labels.readMore}} <svg xmlns="http://www.w3.org/2000/svg"
                                                         viewBox="0 0 24 24"
                                                         class="size-4 fill-gray-400 transition-transform duration-300 group-hover:translate-x-0.5">
                                                         <title>chevron-right</title>
