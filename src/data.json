@@ -18,6 +18,14 @@
         "featured": "destacado",
         "popular": "popular",
         "previous": "Anterior",
-        "next": "Siguiente"
+        "next": "Siguiente",
+        "homeTitle": "Aimentia Blog - Innovación en Salud Mental Digital"
+    },
+    "authors": {
+        "test": {
+            "name": "Test name",
+            "url": "linkedin.com/test",
+            "image": "https://cdn.prod.website-files.com/682a8fd588cec92c59cad9bb/6842683501461b01b907e838_Frame%201.jpg"
+        }
     }
 }

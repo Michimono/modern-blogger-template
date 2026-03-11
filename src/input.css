@@ -5,9 +5,16 @@ body {
 }
 
 /* Post Body Styles */
+  #post-body a:has(> img) {
+    @apply block mx-0 my-10;
+  }
+
+  #post-body a {
+    @apply font-medium text-gray-950 underline decoration-gray-400 underline-offset-4 data-hover:decoration-gray-600;
+  }
 
   #post-body img {
-    @apply mb-10 aspect-[3/2] w-full rounded-2xl object-cover shadow-xl;
+    @apply block w-full h-full object-cover rounded-2xl shadow-xl;
   }
 
   #post-body p {
@@ -22,7 +29,7 @@ body {
     @apply my-2 pl-2 has-[br]:mb-8;
   }
 
-    #post-body blockquote {
+  #post-body blockquote {
     @apply my-10 border-l-2 border-gray-200 pl-6 text-gray-600 font-medium tracking-[-0.01em] leading-8 bg-gray-50 py-2;
   }
 
@@ -31,11 +38,19 @@ body {
   }
 
   #post-body h2 {
-    @apply mt-16 mb-6 scroll-mt-24 text-3xl font-semibold tracking-[-0.01em] leading-9;
+    @apply mt-12 mb-10 scroll-mt-24 text-3xl font-semibold tracking-[-0.01em] leading-9 text-gray-950;
+  }
+
+  #post-body h3 {
+    @apply mt-12 mb-10 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0;
   }
 
   #post-body b {
-    @apply font-semibold text-gray-950;
+    @apply font-semibold text-gray-900;
+  }
+
+  #post-body figcaption {
+    @apply mt-4 text-sm text-gray-500;
   }
 
 /* Post comment styles */
